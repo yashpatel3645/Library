@@ -25,16 +25,19 @@ namespace Library
             this.Controls.Clear();
             this.InitializeComponent();
             // TODO: This line of code loads data into the 'bookdataDataSet.bookdata' table. You can move, or remove it, as needed.
-            this.bookdataTableAdapter.Fill(this.bookdataDataSet.bookdata);
             comboBox1.SelectedIndex = 1;
-            
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\yashp\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
+            SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\king_heart\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
+                SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\yashp\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
                 con.Open();
                 if (comboBox1.SelectedItem == "Book Name")
                 {
@@ -72,11 +75,24 @@ namespace Library
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void open3(object sender, DataGridViewCellEventArgs e)
         {
-            this.Hide();
-            Form8 f = new Form8();
-            f.Show();
+            if (comboBox1.SelectedItem == "Book ID")
+            {
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Book Name")
+            {
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Semester")
+            {
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Auther")
+            {
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
         }
     }
 }

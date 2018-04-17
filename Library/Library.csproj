@@ -61,15 +61,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bookdataDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bookdataDataSet.xsd</DependentUpon>
+    <Compile Include="Faculty Details.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="bookdataDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bookdataDataSet1.xsd</DependentUpon>
+    <Compile Include="Faculty Details.Designer.cs">
+      <DependentUpon>Faculty Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculty.Designer.cs">
+      <DependentUpon>Faculty.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -94,6 +96,24 @@
     </Compile>
     <Compile Include="Form12.Designer.cs">
       <DependentUpon>Form12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form13.Designer.cs">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form14.Designer.cs">
+      <DependentUpon>Form14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form15.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form15.Designer.cs">
+      <DependentUpon>Form15.cs</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -125,36 +145,26 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form7.cs">
+    <Compile Include="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form7.Designer.cs">
-      <DependentUpon>Form7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form8.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form8.Designer.cs">
-      <DependentUpon>Form8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form9.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form9.Designer.cs">
-      <DependentUpon>Form9.cs</DependentUpon>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentdetailDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentdetailDataSet.xsd</DependentUpon>
+    <Compile Include="StudentDetails.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentdetailDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentdetailDataSet1.xsd</DependentUpon>
+    <Compile Include="StudentDetails.Designer.cs">
+      <DependentUpon>StudentDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Faculty Details.resx">
+      <DependentUpon>Faculty Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculty.resx">
+      <DependentUpon>Faculty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +176,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form12.resx">
       <DependentUpon>Form12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13.resx">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form14.resx">
+      <DependentUpon>Form14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form15.resx">
+      <DependentUpon>Form15.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -182,14 +201,8 @@
     <EmbeddedResource Include="Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form7.resx">
-      <DependentUpon>Form7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form8.resx">
-      <DependentUpon>Form8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form9.resx">
-      <DependentUpon>Form9.cs</DependentUpon>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -201,28 +214,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="bookdataDataSet.xsc">
-      <DependentUpon>bookdataDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bookdataDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bookdataDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bookdataDataSet.xss">
-      <DependentUpon>bookdataDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bookdataDataSet1.xsc">
-      <DependentUpon>bookdataDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="bookdataDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bookdataDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bookdataDataSet1.xss">
-      <DependentUpon>bookdataDataSet1.xsd</DependentUpon>
-    </None>
+    <EmbeddedResource Include="StudentDetails.resx">
+      <DependentUpon>StudentDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -232,28 +226,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StudentdetailDataSet.xsc">
-      <DependentUpon>StudentdetailDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="StudentdetailDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StudentdetailDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StudentdetailDataSet.xss">
-      <DependentUpon>StudentdetailDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="StudentdetailDataSet1.xsc">
-      <DependentUpon>StudentdetailDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="StudentdetailDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StudentdetailDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StudentdetailDataSet1.xss">
-      <DependentUpon>StudentdetailDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -266,13 +238,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>bookdata.mdf</DependentUpon>
     </Content>
-    <Content Include="Login.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Login_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Login.mdf</DependentUpon>
-    </Content>
+    <None Include="Resources\image3.jpg" />
+    <None Include="Resources\stains_light_color_background_47319_2048x2048.jpg" />
+    <None Include="Resources\maxresdefault.jpg" />
+    <None Include="Resources\depositphotos_82941776-stock-illustration-abstract-elegant-grey-background.jpg" />
+    <None Include="Resources\dua-op.jpg" />
+    <None Include="Resources\2245225631-0.jpg" />
+    <None Include="Resources\2560x1440-dark-midnight-blue-solid-color-background.jpg" />
+    <None Include="Resources\images3NIB6KME.jpg" />
+    <None Include="Resources\ijo8KeK.jpg" />
     <None Include="Resources\132227-200.png" />
     <None Include="Resources\hello.png" />
     <None Include="Resources\images.png" />
@@ -284,13 +258,8 @@
     <None Include="Resources\images1.png" />
     <None Include="Resources\images5.png" />
     <None Include="Resources\icon-person-480x480.png" />
-    <Content Include="Studentdetail.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Studentdetail_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Studentdetail.mdf</DependentUpon>
-    </Content>
+    <None Include="Resources\ui-29-512.png" />
+    <None Include="Resources\Interior_view_of_Stockholm_Public_Library.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

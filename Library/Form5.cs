@@ -22,39 +22,68 @@ namespace Library
         private void Form5_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'bookdataDataSet1.bookdata' table. You can move, or remove it, as needed.
-            this.bookdataTableAdapter.Fill(this.bookdataDataSet1.bookdata);
-
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\king_heart\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
-                con.Open();
-                SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata where Book_ID like '" + textBox1.Text + "%'", con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-            }
-            catch(Exception ep)
-            {
-                MessageBox.Show(ep.Message);
-            }
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\yashp\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
+            con.Open();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            comboBox1.SelectedIndex = 1;
         }
 
         private void del_Click(object sender, EventArgs e)
         {
-            try
+            if (bookid.Text == "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\king_heart\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
-                con.Open();
-                SqlCommand da = new SqlCommand("Delete from bookdata where Book_ID='"+textBox1.Text+"'",con);
-                da.ExecuteNonQuery();
-                MessageBox.Show("Deleted");
+                MessageBox.Show("Please Enter Book ID.");
             }
-            catch(Exception ep)
+            else
             {
-                MessageBox.Show(ep.Message);
+                try
+                {
+                    SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\yashp\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
+                    con.Open();
+                    if (comboBox1.SelectedItem == "Book ID")
+                    {
+                        SqlCommand da = new SqlCommand("Delete from bookdata where Book_ID='" + bookid.Text + "'", con);
+                        da.ExecuteNonQuery();
+                        MessageBox.Show("Deleted");
+                    }
+                    if (comboBox1.SelectedItem == "Book Name")
+                    {
+                        SqlCommand da = new SqlCommand("Delete from bookdata where Book_name='" + bookid.Text + "'", con);
+                        da.ExecuteNonQuery();
+                        MessageBox.Show("Deleted");
+                    }
+                    if (comboBox1.SelectedItem == "Auther")
+                    {
+                        SqlCommand da = new SqlCommand("Delete from bookdata where Auther='" + bookid.Text + "'", con);
+                        da.ExecuteNonQuery();
+                        MessageBox.Show("Deleted");
+                    }
+                    if (comboBox1.SelectedItem == "Publication")
+                    {
+                        SqlCommand da = new SqlCommand("Delete from bookdata where pname='" + bookid.Text + "'", con);
+                        da.ExecuteNonQuery();
+                        MessageBox.Show("Deleted");
+                    }
+                    if (comboBox1.SelectedItem == "Semester")
+                    {
+                        SqlCommand da = new SqlCommand("Delete from bookdata where Semester='" + bookid.Text + "'", con);
+                        da.ExecuteNonQuery();
+                        MessageBox.Show("Deleted");
+                    }
+                    if (comboBox1.SelectedItem == "Branch")
+                    {
+                        SqlCommand da = new SqlCommand("Delete from bookdata where branch='" + bookid.Text + "'", con);
+                        da.ExecuteNonQuery();
+                        MessageBox.Show("Deleted");
+                    }
+                }
+                catch (Exception ep)
+                {
+                    MessageBox.Show(ep.Message);
+                }
             }
         }
 
@@ -65,11 +94,92 @@ namespace Library
             f.Show();
         }
 
+        private void open3(object sender, DataGridViewCellEventArgs e)
+        {
+            if (comboBox1.SelectedItem == "Book ID")
+            {
+                bookid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Book Name")
+            {
+                bookid.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Auther")
+            {
+                bookid.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Publication")
+            {
+                bookid.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Semester")
+            {
+                bookid.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+            if (comboBox1.SelectedItem == "Branch")
+            {
+                bookid.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bookid.Text = "";
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form8 f = new Form8();
-            f.Show();
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =c:\users\yashp\documents\visual studio 2015\Projects\Library\Library\bookdata.mdf; Integrated Security = True");
+                con.Open();
+                if (comboBox1.SelectedItem == "Book ID")
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata where Book_ID like '" + bookid.Text + "%'", con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                if (comboBox1.SelectedItem == "Book Name")
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata where Book_name like '" + bookid.Text + "%'", con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                if (comboBox1.SelectedItem == "Auther")
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata where Auther like '" + bookid.Text + "%'", con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                if (comboBox1.SelectedItem == "Publication")
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata where pname like '" + bookid.Text + "%'", con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                if (comboBox1.SelectedItem == "Semester")
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata where Semester like '" + bookid.Text + "%'", con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                if (comboBox1.SelectedItem == "Branch")
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("Select * from bookdata where branch like '" + bookid.Text + "%'", con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            catch (Exception ep)
+            {
+                MessageBox.Show(ep.Message);
+            }
         }
     }
 }
